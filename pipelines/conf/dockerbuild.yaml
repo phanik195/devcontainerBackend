@@ -1,0 +1,8 @@
+docker:
+     dockerfile_path: './Dockerfile'
+     registryname: 'psregistry.pscloudhub.com'
+     registrycreds: 'harbor-prod'
+     imagename: 'psinnersource_platform/gen-ai-embedder:${BRANCH_NAME}-${BUILD_NUMBER}'
+     imageSeverity: 'HIGH,CRITICAL'
+     scanExitCode: '0'
+    

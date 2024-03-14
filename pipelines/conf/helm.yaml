@@ -1,0 +1,9 @@
+---
+helm:
+  imageUrl: ""
+  helmChartLocation: ""
+  api: ""
+  containerPort: 5003
+  lprobe: "/api/v1/health/liveness"
+  rprobe: "/api/v1/health/readiness"
+  namespace: "psi"

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "gen-ai-embedder.fullname" . }}
+  labels:
+    {{- include "gen-ai-embedder.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "gen-ai-embedder.selectorLabels" . | nindent 4 }}

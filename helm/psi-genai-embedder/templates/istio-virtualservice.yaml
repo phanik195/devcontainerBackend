@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{ include "gen-ai-embedder.name" . }}-vs
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - {{ include "gen-ai-embedder.name" . }}-gateway
+  http:
+    - route:
+        - destination:
+            host: {{.Values.serviceName}}
+#            subset: v1

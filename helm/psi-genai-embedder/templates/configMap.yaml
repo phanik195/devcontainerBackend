@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "gen-ai-embedder.fullname" . }}-config
+  annotations:
+    'strategy.spinnaker.io/versioned': 'false'
+data:
+  KEY_VAULT_CLIENT_ID: {{ .Values.vault.clientId }}
+  KEY_VAULT_CLIENT_KEY: {{ .Values.vault.clientKey }}
+  KEY_VAULT_TENANT_ID: {{ .Values.vault.tenantId }}
+  KEY_VAULT_URI: {{ .Values.vault.uri }}
+  SPRING_PROFILE: {{ .Values.springProfile }}
